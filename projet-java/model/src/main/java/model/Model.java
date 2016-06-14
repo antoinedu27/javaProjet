@@ -14,12 +14,14 @@ public class Model extends Observable implements IModel {
 
 	/** The message. */
 	private String message;
+	private Player player;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
 		this.message = "";
+		this.player = new Player(0,0,true,13);
 	}
 
 	/*
@@ -29,6 +31,14 @@ public class Model extends Observable implements IModel {
 	 */
 	public String getMessage() {
 		return this.message;
+	}
+	
+	public Player getPosition(){
+		return player;
+	}
+	public void setPosition(int posx, int posy){
+		player.setPosx(posx);
+		player.setPosy(posy);
 	}
 
 	/**
@@ -48,10 +58,12 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMessage(final String key) {
+	public void loadPosition(int posx, int posy) {
 		try {
 			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
+		//	this.setMessage(daoHelloWorld.find(key).getMessage());
+			this.setPosition(daoHelloWorld.find(posx).getPosition());
+			this.setPosition(daoHelloWorld.find(posy).getPosition());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -65,4 +77,5 @@ public class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
+
 }

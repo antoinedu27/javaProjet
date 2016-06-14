@@ -68,7 +68,8 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 			case Up:
 				 player.setPosy(player.getPosy() + 1);
-				System.out.println(player.getPosy());
+				 System.out.println(player.getPosy());
+				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Down:
 				 player.setPosy(player.getPosy() - 1);

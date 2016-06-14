@@ -22,7 +22,7 @@ public interface IModel {
 	 * @param key
 	 *          the key
 	 */
-	void loadMessage(String key);
+	void loadPosition(int posx, int posy);
 
 	/**
 	 * Gets the observable.

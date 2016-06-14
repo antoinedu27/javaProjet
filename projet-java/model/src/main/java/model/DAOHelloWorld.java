@@ -67,13 +67,13 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 		HelloWorld helloWorld = new HelloWorld();
 
 		try {
-			final String sql = "{call helloworldById(?)}";
+			final String sql = "{call PlayerById(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				helloWorld = new HelloWorld(id, resultSet.getString("key"), resultSet.getString("message"));
+				helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("message"));
 			}
 			return helloWorld;
 		} catch (final SQLException e) {
