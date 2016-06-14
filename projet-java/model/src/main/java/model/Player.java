@@ -14,27 +14,35 @@ public class Player extends Creature {
 
 
 	public void lancerSkillDroite(Skill skill){
-		skill = new Skill(super.getPosx(),super.getPosy(), false);  // le sort part de la position du player, et quitte ses mains
+		if (skill.isInHand() == true){
+		skill = new Skill(super.getPosx(),super.getPosy(), true);  // le sort part de la position du player, et quitte ses mains
 		skill.setPosx(skill.getPosx() + 1);
 		skill.setInHand(false);
+		}
 	}
 	
 	public void lancerSkillGauche(Skill skill){
+		if (skill.isInHand() == true){
 		skill = new Skill(super.getPosx(),super.getPosy(), false); 
 		skill.setPosx(skill.getPosx() - 1);
 		skill.setInHand(false);
+		}
 	}
 	
 	public void lancerSkillHaut(Skill skill){
+		if (skill.isInHand() == true){
 		skill = new Skill(super.getPosx(),super.getPosy(), false);
 		skill.setPosy(skill.getPosy() - 1);
 		skill.setInHand(false);
+		}
 	}
 	
 	public void lancerSkillBas(Skill skill){
+		if (skill.isInHand() == true){
 		skill = new Skill(super.getPosx(),super.getPosy(), false);
 		skill.setPosy(skill.getPosy() + 1);
 		skill.setInHand(false);
+		}
 	}
 	
 	
