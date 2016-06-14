@@ -1,6 +1,7 @@
 package main;
 
 import controller.Controller;
+import model.Creature;
 import model.Model;
 import view.View;
 

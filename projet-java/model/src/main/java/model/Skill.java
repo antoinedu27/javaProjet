@@ -8,8 +8,18 @@ public class Skill extends Entity {
 	
 	public Skill(int posx, int posy, boolean inHand){
 		this.setPosx(posx);
-		this.posy = posy;
+		this.setPosy(posy);
 		this.setInHand(inHand);
+	}
+
+
+	public int getPosy() {
+		return posy;
+	}
+
+
+	public void setPosy(int posy) {
+		this.posy = posy;
 	}
 
 
@@ -21,6 +31,7 @@ public class Skill extends Entity {
 	public void setPosx(int posx) {
 		this.posx = posx;
 	}
+	
 
 
 	public boolean isInHand() {
@@ -30,16 +41,6 @@ public class Skill extends Entity {
 
 	public void setInHand(boolean inHand) {
 		this.inHand = inHand;
-	}
-
-
-	public int getPosy() {
-		return posy;
-	}
-
-
-	public void setPosy(int posy) {
-		this.posy = posy;
 	}
 	
 	

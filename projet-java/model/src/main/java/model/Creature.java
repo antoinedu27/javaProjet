@@ -11,26 +11,8 @@ public class Creature extends Entity {
 		setPosx(posx);
 		setPosy(posy);
 		setVivant(vivant);
-		
 	}
 	
-	
-	public void motionDroite(int posx){
-		setPosx(posx + 1);
-		System.out.println("droite");
-	}
-	public void motionGauche(int posx){
-		setPosx(posx - 1);
-		System.out.println("gauche");
-	}
-	public void motionBas(int posy){
-		setPosy(posy + 1);
-		System.out.println("bas");
-	}
-	public void motionHaut(int posy){
-		setPosy(posy - 1);
-		System.out.println("haut");
-	}
 
 
 	public int getPosx() {

@@ -1,36 +1,37 @@
 package model;
 
+
 public class Player extends Creature {
 	private Skill skill;
 	private int nbResurrect;
 	
 	
-	public Player(int posx, int posy, boolean vivant, Skill Skill, int nbResurrect) {
+	public Player(int posx, int posy, boolean vivant, int nbResurrect) {
 		super(posx, posy, vivant);
-		this.skill = skill;
+		this.nbResurrect = nbResurrect;
 		
 	}
 
 
-	public void lancerSkillHorizontalDroite(Skill skill){
+	public void lancerSkillDroite(Skill skill){
 		skill = new Skill(super.getPosx(),super.getPosy(), false);  // le sort part de la position du player, et quitte ses mains
 		skill.setPosx(skill.getPosx() + 1);
 		skill.setInHand(false);
 	}
 	
-	public void lancerSkillHorizontalGauche(Skill skill){
+	public void lancerSkillGauche(Skill skill){
 		skill = new Skill(super.getPosx(),super.getPosy(), false); 
 		skill.setPosx(skill.getPosx() - 1);
 		skill.setInHand(false);
 	}
 	
-	public void lancerSkillVerticalHaut(Skill skill){
+	public void lancerSkillHaut(Skill skill){
 		skill = new Skill(super.getPosx(),super.getPosy(), false);
 		skill.setPosy(skill.getPosy() - 1);
 		skill.setInHand(false);
 	}
 	
-	public void lancerSkillVerticalBas(Skill skill){
+	public void lancerSkillBas(Skill skill){
 		skill = new Skill(super.getPosx(),super.getPosy(), false);
 		skill.setPosy(skill.getPosy() + 1);
 		skill.setInHand(false);

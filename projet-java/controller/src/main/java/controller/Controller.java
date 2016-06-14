@@ -4,11 +4,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-
-// TODO: Auto-generated Javadoc
-/**
- * The Class Controller.
- */
+import model.Player;
 public class Controller implements IController {
 
 	/** The view. */
@@ -16,7 +12,10 @@ public class Controller implements IController {
 
 	/** The model. */
 	private IModel	model;
-
+	
+	private Player player = new Player(0,0,true,11);
+	
+	
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -28,6 +27,7 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		
 	}
 
 	/*
@@ -67,19 +67,23 @@ public class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case Up:
-				this.model.loadMessage("GB");
+				 player.setPosy(player.getPosy() + 1);
+				System.out.println(player.getPosy());
 				break;
 			case Down:
-				this.model.loadMessage("FR");
+				 player.setPosy(player.getPosy() - 1);
+				System.out.println(player.getPosy());
 				break;
 			case Left:
-				this.model.loadMessage("DE");
+				 player.setPosx(player.getPosx() + 1);
+				System.out.println(player.getPosx());
 				break;
 			case Right:
-				this.model.loadMessage("ID");
+				 player.setPosx(player.getPosx() + 1);
+				System.out.println(player.getPosx());
 				break;
 			case Skill:
-				System.out.println("skill");
+				 player.lancerSkillDroite(null);
 			default:
 				break;
 		}
