@@ -37,8 +37,8 @@ public class Model extends Observable implements IModel {
 		return player;
 	}
 	public void setPosition(int posx, int posy){
-		player.setPosx(posx);
-		player.setPosy(posy);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/**
@@ -47,12 +47,12 @@ public class Model extends Observable implements IModel {
 	 * @param message
 	 *          the new message
 	 */
-	private void setMessage(final String message) {
+	/*private void setMessage(final String message) {
 		this.message = message;
 		this.setChanged();
 		this.notifyObservers();
 	}
-
+*/
 	/*
 	 * (non-Javadoc)
 	 *
@@ -61,9 +61,12 @@ public class Model extends Observable implements IModel {
 	public void loadPosition(int posx, int posy) {
 		try {
 			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
+			daoHelloWorld.majPosx(posx);
+			daoHelloWorld.majPosy(posy);
 		//	this.setMessage(daoHelloWorld.find(key).getMessage());
-			this.setPosition(daoHelloWorld.find(posx).getPosition());
-			this.setPosition(daoHelloWorld.find(posy).getPosition());
+		//	this.setPosition(daoHelloWorld.find(posx));
+		//	this.setPosition(daoHelloWorld.find(posy));
+			
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

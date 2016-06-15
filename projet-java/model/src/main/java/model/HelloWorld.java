@@ -9,12 +9,15 @@ class HelloWorld extends Entity {
 
 	/** The id. */
 	private int			id;
+	
+	private int posx;
+	private int posy;
 
 	/** The key. */
-	private String	key;
+//	private String	key;
 
 	/** The message. */
-	private String	message;
+//	private String	message;
 
 	/**
 	 * Instantiates a new hello world.
@@ -28,8 +31,27 @@ class HelloWorld extends Entity {
 	 */
 	public HelloWorld(final int id, final int posx, final int posy) {
 		this.setId(id);
-		this.setKey(key);
-		this.setMessage(message);
+	//	this.setKey(key);
+	//	this.setMessage(message);
+		
+		this.setPosx(posx);
+		this.setPosy(posy);
+	}
+
+	public int getPosx() {
+		return posx;
+	}
+
+	public void setPosx(int posx) {
+		this.posx = posx;
+	}
+
+	public int getPosy() {
+		return posy;
+	}
+
+	public void setPosy(int posy) {
+		this.posy = posy;
 	}
 
 	/**
@@ -63,9 +85,9 @@ class HelloWorld extends Entity {
 	 *
 	 * @return the key
 	 */
-	public String getKey() {
+	/*public String getKey() {
 		return this.key;
-	}
+	}*/
 
 	/**
 	 * Sets the key.
@@ -73,18 +95,18 @@ class HelloWorld extends Entity {
 	 * @param key
 	 *          the new key
 	 */
-	public void setKey(final String key) {
+/*	public void setKey(final String key) {
 		this.key = key;
-	}
+	}*/
 
 	/**
 	 * Gets the message.
 	 *
 	 * @return the message
 	 */
-	public String getMessage() {
+	/*public String getMessage() {
 		return this.message;
-	}
+	}*/
 
 	/**
 	 * Sets the message.
@@ -92,9 +114,10 @@ class HelloWorld extends Entity {
 	 * @param message
 	 *          the new message
 	 */
-	public void setMessage(final String message) {
+	/*public void setMessage(final String message) {
 		this.message = message;
-	}
+		}*/
+	
 
 }
 

@@ -10,7 +10,7 @@ import java.sql.SQLException;
  *
  * @author Jean-Aymeric Diet
  */
-class DAOHelloWorld extends DAOEntity<HelloWorld> {
+class DAOHelloWorld extends DAOEntity {
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -30,65 +30,55 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
 	@Override
-	public boolean create(final HelloWorld entity) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#delete(model.Entity)
-	 */
-	@Override
-	public boolean delete(final HelloWorld entity) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#update(model.Entity)
-	 */
-	@Override
-	public boolean update(final HelloWorld entity) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(int)
-	 */
-	@Override
-	public HelloWorld find(final int id) {
-		HelloWorld helloWorld = new HelloWorld();
+	
+	public void majPosx(final int posx) {
+		//HelloWorld helloWorld = new HelloWorld();
 
 		try {
-			final String sql = "{call PlayerById(?)}";
+			final String sql = "{call PlayerUpx(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
+			call.setInt(1, posx);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("message"));
-			}
-			return helloWorld;
+			//if (resultSet.first()) {
+			//	helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("posy"));
+
+		//		System.out.println(resultSet.getInt("posx"));
+		//	}
+			//return helloWorld;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+	//	return null;
 	}
 
+	
+	public void majPosy(final int posy) {
+	//	HelloWorld helloWorld = new HelloWorld();
+
+		try {
+			final String sql = "{call PlayerUpy(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setInt(1, posy);
+			call.execute();
+			final ResultSet resultSet = call.getResultSet();
+		//	if (resultSet.first()) {
+			//	helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("posy"));
+//				System.out.println(resultSet.getInt("posy"));
+		//	}
+	//		return helloWorld;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	//	return null;
+	}
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
-	@Override
-	public HelloWorld find(final String key) {
+	
+/*	public HelloWorld find(final int posy) {
 		HelloWorld helloWorld = new HelloWorld();
 
 		try {
@@ -98,13 +88,13 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				helloWorld = new HelloWorld(resultSet.getInt("id"), key, resultSet.getString("message"));
+				helloWorld = new HelloWorld(resultSet.getInt("posx"), key, resultSet.getInt("posy"));
 			}
 			return helloWorld;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 
 }

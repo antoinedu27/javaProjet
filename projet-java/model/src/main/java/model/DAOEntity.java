@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @param <E>
  *          the element type
  */
-abstract class DAOEntity<E extends Entity> {
+abstract class DAOEntity {
 
 	/** The connection. */
 	private final Connection connection;
@@ -44,7 +44,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the entity
 	 * @return true, if successful
 	 */
-	public abstract boolean create(E entity);
+//	public abstract boolean create(E entity);
 
 	/**
 	 * Delete.
@@ -53,7 +53,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the entity
 	 * @return true, if successful
 	 */
-	public abstract boolean delete(E entity);
+//public abstract boolean delete(E entity);
 
 	/**
 	 * Update.
@@ -62,7 +62,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the entity
 	 * @return true, if successful
 	 */
-	public abstract boolean update(E entity);
+	//public abstract boolean update(E entity);
 
 	/**
 	 * Find.
@@ -71,7 +71,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the id
 	 * @return the e
 	 */
-	public abstract E find(int id);
+	public abstract void majPosx(int posx);
 
 	/**
 	 * Find.
@@ -80,6 +80,11 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the key
 	 * @return the e
 	 */
-	public abstract E find(String key);
+//	public abstract E find(String key);
+
+	public abstract void majPosy(int posy);
+
+	
+
 
 }

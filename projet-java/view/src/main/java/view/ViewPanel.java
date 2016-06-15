@@ -5,7 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
-
+import model.Player;
 /**
  * The Class ViewPanel.
  *
@@ -62,9 +62,9 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
-	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString("salut, je suis ici en x : ", 10, 20);
+		
 	}
 }

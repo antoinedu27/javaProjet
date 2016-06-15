@@ -1,5 +1,7 @@
 package contract;
 
+
+
 /**
  * The Interface IView.
  *
@@ -14,4 +16,10 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+
+	
+	
+	
+	
+	
 }

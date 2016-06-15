@@ -13,7 +13,9 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	
-	private Player player = new Player(0,0,true,11);
+	private Player player = new Player(0,0,true,13);
+			
+	
 	
 	
 	/**
@@ -27,6 +29,7 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+//		this.player = view.majPlayer(this.player);
 		
 	}
 
@@ -36,7 +39,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("appuyez sur la direction de votre choix.");
+		this.view.printMessage("appuyez sur la verrue de votre voisin");
 	}
 
 	/**
@@ -68,20 +71,19 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 			case Up:
 				 player.setPosy(player.getPosy() + 1);
-				 System.out.println(player.getPosy());
 				 this.model.loadPosition(player.getPosx(), player.getPosy());
-				break;
+					break;
 			case Down:
 				 player.setPosy(player.getPosy() - 1);
-				System.out.println(player.getPosy());
+				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Left:
 				 player.setPosx(player.getPosx() + 1);
-				System.out.println(player.getPosx());
+				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Right:
 				 player.setPosx(player.getPosx() + 1);
-				System.out.println(player.getPosx());
+				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Skill:
 				 player.lancerSkillDroite(null);

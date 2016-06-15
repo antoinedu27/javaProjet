@@ -2,12 +2,15 @@ package view;
 
 import java.awt.event.KeyEvent;
 
+
 import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import model.Creature;
+import model.Player;
 
 /**
  * The Class View.
@@ -62,6 +65,7 @@ public class View implements IView, Runnable {
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -81,4 +85,8 @@ public class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+		
+	
+	
+
 }
