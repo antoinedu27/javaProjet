@@ -10,6 +10,13 @@ import java.util.Properties;
  * @author Jean-Aymeric Diet
  */
 class DBProperties extends Properties {
+	
+	
+	/*
+	 * 
+	 * 
+	 * la aussi on évite ...
+	 */
 
 	/** The Constant serialVersionUID. */
 	private static final long		serialVersionUID			= 5289057445894568927L;
@@ -63,6 +70,7 @@ class DBProperties extends Properties {
 	 */
 	private void setUrl(final String url) {
 		this.url = url;
+
 	}
 
 	/**

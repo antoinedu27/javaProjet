@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.SQLException;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -13,11 +15,15 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	
-	private Player player = new Player(0,0,true,13);
-			
+	private Player player ;
+	 /* ici on instancie un objet player. 
+	  * en gros on crée un joueur
+	  * ( je rappelle que le joueur prend en parametre 
+	  * (int,int,bool,int), soit (position x, position y,
+	  *  vivant ou mort, et nb resureections restantes.)
 	
 	
-	
+	*/
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -25,11 +31,19 @@ public class Controller implements IController {
 	 *          the view
 	 * @param model
 	 *          the model
+	 * @throws SQLException 
 	 */
-	public Controller(final IView view, final IModel model) {
+	public Controller(final IView view, final IModel model) throws SQLException {
 		this.setView(view);
 		this.setModel(model);
-//		this.player = view.majPlayer(this.player);
+		this.player.setPosx(view.recupPosx());
+		 // le contrôleur commande à la vue de récupérer la position x du joueur
+		 
+		this.player.setPosy(view.recupPosy());
+		
+		/* ici il faudra ajouter de la même mannière que la recupPos
+		 * une recupVivant et une recupResurtionsRestantes.
+		 */
 		
 	}
 
@@ -40,6 +54,11 @@ public class Controller implements IController {
 	 */
 	public void control() {
 		this.view.printMessage("appuyez sur la verrue de votre voisin");
+		/*
+		 * cette fonction là je m'en sert pas, si vous lui trouvez
+		 * une utilité allez y.
+		 */
+		
 	}
 
 	/**
@@ -50,6 +69,9 @@ public class Controller implements IController {
 	 */
 	private void setView(final IView view) {
 		this.view = view;
+		/*
+		 * setters d'attributs, rien de plus basique
+		 */
 	}
 
 	/**
@@ -69,16 +91,19 @@ public class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case Up:
-				 player.setPosy(player.getPosy() + 1);
+			case Up: // si l'utilisateur a appuyé sur up :
+				 player.setPosy(player.getPosy() - 1); 
+				 //la position du joueur est modifiée d'une case(il faudra probablement remplacer par 32
 				 this.model.loadPosition(player.getPosx(), player.getPosy());
-					break;
+				 //le controller dit au model de se mettre à jour.
+				 // c'est la meme chose pour les autres touches evidemment.
+				break;
 			case Down:
-				 player.setPosy(player.getPosy() - 1);
+				 player.setPosy(player.getPosy() + 1);
 				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Left:
-				 player.setPosx(player.getPosx() + 1);
+				 player.setPosx(player.getPosx() - 1);
 				 this.model.loadPosition(player.getPosx(), player.getPosy());
 				break;
 			case Right:

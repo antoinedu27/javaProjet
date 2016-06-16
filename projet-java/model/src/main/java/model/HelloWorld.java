@@ -12,30 +12,19 @@ class HelloWorld extends Entity {
 	
 	private int posx;
 	private int posy;
-
-	/** The key. */
-//	private String	key;
-
-	/** The message. */
-//	private String	message;
-
-	/**
-	 * Instantiates a new hello world.
-	 *
-	 * @param id
-	 *          the id
-	 * @param key
-	 *          the key
-	 * @param message
-	 *          the message
-	 */
+/*
+ * le fameux hello world !!!!!
+ * attendez, ca serait pas la classe de mort qui sert à rien ?
+ * ah, bah si.
+ * perso je lui ai pas trouvé d'utilité je crois. après tout on a une classe player.
+ * 
+ * 
+ */
 	public HelloWorld(final int id, final int posx, final int posy) {
-		this.setId(id);
-	//	this.setKey(key);
-	//	this.setMessage(message);
-		
+		this.setId(id);		
 		this.setPosx(posx);
 		this.setPosy(posy);
+		
 	}
 
 	public int getPosx() {
@@ -78,46 +67,8 @@ class HelloWorld extends Entity {
 	 */
 	public void setId(final int id) {
 		this.id = id;
-	}
 
-	/**
-	 * Gets the key.
-	 *
-	 * @return the key
-	 */
-	/*public String getKey() {
-		return this.key;
-	}*/
-
-	/**
-	 * Sets the key.
-	 *
-	 * @param key
-	 *          the new key
-	 */
-/*	public void setKey(final String key) {
-		this.key = key;
-	}*/
-
-	/**
-	 * Gets the message.
-	 *
-	 * @return the message
-	 */
-	/*public String getMessage() {
-		return this.message;
-	}*/
-
-	/**
-	 * Sets the message.
-	 *
-	 * @param message
-	 *          the new message
-	 */
-	/*public void setMessage(final String message) {
-		this.message = message;
-		}*/
+}
 	
-
 }
 

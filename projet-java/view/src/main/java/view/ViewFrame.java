@@ -17,6 +17,15 @@ import contract.IModel;
  * @author Jean-Aymeric Diet
  */
 class ViewFrame extends JFrame implements KeyListener {
+	
+	
+	/*
+	 * wesh logan, ici tu vas pouvoir faire des beaux dessins ! 
+	 * pour dessiner oublie pas que les coordonnées du player sont 
+	 * dans view.recupposx et y
+	 * 	  
+	 * 
+	 */
 
 	/** The model. */
 	private IModel						model;

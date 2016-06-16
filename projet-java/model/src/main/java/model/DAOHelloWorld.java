@@ -10,7 +10,7 @@ import java.sql.SQLException;
  *
  * @author Jean-Aymeric Diet
  */
-class DAOHelloWorld extends DAOEntity {
+public class DAOHelloWorld extends DAOEntity {
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -25,58 +25,86 @@ class DAOHelloWorld extends DAOEntity {
 	}
 
 	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#create(model.Entity)
+	 * les fonctions contenues dans cette classe sont les plus importantes !
+	 * c'est elles qui permettent toute relation avec le model(bdd)
 	 */
-	@Override
-	
 	public void majPosx(final int posx) {
-		//HelloWorld helloWorld = new HelloWorld();
+		
 
 		try {
-			final String sql = "{call PlayerUpx(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, posx);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			//if (resultSet.first()) {
-			//	helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("posy"));
-
-		//		System.out.println(resultSet.getInt("posx"));
-		//	}
-			//return helloWorld;
+			final String sql = "{call PlayerUpx(?)}"; //on ecrit dans un string la procedure a ecrire dans la bdd
+			final CallableStatement call = this.getConnection().prepareCall(sql);//on initialise l'appel de procedure
+			call.setInt(1, posx);// on définit que le parametre de la procedure sera un int nommé posx.
+			call.execute();//on execute l'appel
 		} catch (final SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(); // les try catchs, je sais pas a quoi ca sert, mais il faut qu'ils soient la.
 		}
-	//	return null;
 	}
 
 	
 	public void majPosy(final int posy) {
-	//	HelloWorld helloWorld = new HelloWorld();
 
-		try {
+		try {// ici, meme chose que pour x, mais pour y
 			final String sql = "{call PlayerUpy(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, posy);
 			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-		//	if (resultSet.first()) {
-			//	helloWorld = new HelloWorld(id, resultSet.getInt("posx"), resultSet.getInt("posy"));
-//				System.out.println(resultSet.getInt("posy"));
-		//	}
-	//		return helloWorld;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-	//	return null;
 	}
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
+
+	public int recupPosx()  {
+		
+		try { // la c'est la partie qui récupère les positions stockées dans la bdd.
+		int x;
+		final String sql = "{call PlayerReadx(?)}";// pas besoin de réexpliquer pour les 3 prochaines lignes.
+		final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setInt(1, 0);
+		call.execute();
+		final ResultSet resultSet = call.getResultSet(); // ici on crée un objet qui récupèrera la position.
+			if (resultSet.first()) {//si une donnée est trouvée ...
+				x = resultSet.getInt("posx");// on la retourne !!
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+		
+		
+		
+		
+	}
+	
+	
+
+	public int recupPosy() {
+		try {// meme chose que pour le y.
+			int y = 0;
+			final String sql = "{call PlayerReady(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+				call.setInt(1, 0);
+			call.execute();
+			final ResultSet resultSet = call.getResultSet();
+				if (resultSet.first()) {
+					y = resultSet.getInt("posy");
+				}
+				
+				return y;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return 0;
+		
+	}
 	
 /*	public HelloWorld find(final int posy) {
 		HelloWorld helloWorld = new HelloWorld();
