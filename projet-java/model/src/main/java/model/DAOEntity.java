@@ -13,6 +13,10 @@ import java.sql.SQLException;
  */
 abstract class DAOEntity {
 
+	/*
+	 * 
+	 * touchez pas a cette classe !
+	 */
 	/** The connection. */
 	private final Connection connection;
 
@@ -44,7 +48,6 @@ abstract class DAOEntity {
 	 *          the entity
 	 * @return true, if successful
 	 */
-//	public abstract boolean create(E entity);
 
 	/**
 	 * Delete.
@@ -53,7 +56,6 @@ abstract class DAOEntity {
 	 *          the entity
 	 * @return true, if successful
 	 */
-//public abstract boolean delete(E entity);
 
 	/**
 	 * Update.
@@ -62,7 +64,6 @@ abstract class DAOEntity {
 	 *          the entity
 	 * @return true, if successful
 	 */
-	//public abstract boolean update(E entity);
 
 	/**
 	 * Find.

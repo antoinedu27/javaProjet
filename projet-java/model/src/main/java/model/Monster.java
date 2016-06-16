@@ -7,6 +7,9 @@ public class Monster extends Creature {
 		super(posx, posy, vivant);
 	}
 	
+	//comme un player, mais en moins intelligent.
+	// il faut les faire bouger , mais en carré ca suffira. pas de path finder
+	
 	
 	
 }

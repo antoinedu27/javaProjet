@@ -10,7 +10,9 @@ abstract class Entity {
 	private int posx;
 	private int posy;
 	
-	
+	/*
+	 * la classe mere de toutes les entités
+	 */
 	
 	public int getPosx() {
 		return posx;

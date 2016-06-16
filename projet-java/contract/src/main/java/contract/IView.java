@@ -1,6 +1,6 @@
 package contract;
 
-
+import java.sql.SQLException;
 
 /**
  * The Interface IView.
@@ -16,6 +16,10 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+
+	int recupPosx()throws SQLException;
+
+	int recupPosy()throws SQLException;
 
 	
 	

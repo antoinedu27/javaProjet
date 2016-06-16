@@ -1,7 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
-
+import java.sql.SQLException;
 
 import javax.swing.SwingUtilities;
 
@@ -10,6 +10,8 @@ import contract.IController;
 import contract.IModel;
 import contract.IView;
 import model.Creature;
+import model.DAOHelloWorld;
+import model.DBConnection;
 import model.Player;
 
 /**
@@ -42,7 +44,7 @@ public class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_UP:
+			case KeyEvent.VK_UP: // si l'user appuie sur up, on va chercher up, normal.
 				return ControllerOrder.Up;
 			case KeyEvent.VK_DOWN:
 				return ControllerOrder.Down;
@@ -84,6 +86,23 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+	
+	public int recupPosx() throws SQLException{
+		final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
+		return daoHelloWorld.recupPosx();
+		/*
+		 * j'ai laissé dao hello world pour la classe bdd car ca sert
+		 * a rien de changer. on appelle la méthode recupposx
+		 * de l'objet instancié qui va directement chercher 
+		 * dans la bdd.
+		 */
+		
+	}
+
+	public int recupPosy() throws SQLException {
+		final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
+		return daoHelloWorld.recupPosy();
 	}
 		
 	
